@@ -4,44 +4,20 @@ import cors from 'cors'
 
 const app = express()
 
-// const db = mysql.createConnection({
-//     host: "localhost",
-//     user:"root",
-//     password: "password",
-//     database: "mydb"
-// })
-
 const db = new mysql.createConnection({
     host: "az-dbms.mysql.database.azure.com",
     user:"dbmsadmin",
     port:3306,
     password: "erp@123q",
     database: "mydb"
-    //ssl:{ca:fs.readFileSync("/Users/bhu1r/Desktop/pro1/DigiCertGlobalRootCA.crt.pem")}
 })
 
-// var config =
-// {
-//     host: 'az-dbms.mysql.database.azure.com',
-//     user: 'dbmsadmin',
-//     password: 'erp@123q',
-//     database: 'mydb',
-//     port: 3306
-//     // ssl: {ca: fs.readFileSync("your_path_to_ca_cert_file_BaltimoreCyberTrustRoot.crt.pem")}
-// };
-
-//db = new mysql.createConnection(config);
-
-db.connect(
-    function (err) { 
-        if (err) { 
-            console.log("!!! Cannot connect !!! Error:");
-            throw err;
-        }
-        else {
-            console.log("Connection established.");
-            //updateData();
-        }
+db.connect(function (err){ 
+    if (err){ 
+        console.log("!!! Cannot connect !!! Error:");
+        throw err;
+    }
+    console.log("Connection established.");  
 });
 
 var q = 'SELECT * FROM Department;'
