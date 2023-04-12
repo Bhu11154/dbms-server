@@ -12,12 +12,9 @@ const db = new mysql.createConnection({
     database: "mydb"
 })
 
-db.connect(function (err){ 
-    if (err){ 
-        console.log("!!! Cannot connect !!! Error:");
-        throw err;
-    }
-    console.log("Connection established.");  
+db.connect(function(err){ 
+    if (err) console.log("!!! Cannot connect !!! Error:");
+    else console.log("Connection established.");  
 });
 
 var q = 'SELECT * FROM Department;'
